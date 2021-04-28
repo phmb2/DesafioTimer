@@ -123,9 +123,11 @@ class TimerViewController: UIViewController {
     func shakeView(view: UIView) {
         let animation = CAKeyframeAnimation()
         animation.keyPath = "position.x"
-        animation.values = [0, 10, -10, 10, -5, 5, -5, 0]
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0]
         animation.keyTimes = [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1]
-        animation.duration = 4.0
+        animation.duration = 0.7
+        animation.repeatCount = 4
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.isAdditive = true
 
         view.layer.add(animation, forKey: "shake")
