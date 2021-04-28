@@ -60,16 +60,13 @@ class TimerViewController: UIViewController {
         timerPickerView.delegate = self
         timerPickerView.dataSource = self
         center.delegate = self
+        
+        configureLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        configureLayout()
     }
     
     // MARK: - Helpers
@@ -92,7 +89,6 @@ class TimerViewController: UIViewController {
     }
     
     func startCountdown() {
-        
         timer = Timer(timeInterval: 1.0, target: self, selector: #selector(timerPerformAction), userInfo: nil, repeats: true)
         RunLoop.current.add(timer, forMode: .common)
     }
